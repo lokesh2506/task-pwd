@@ -6,6 +6,8 @@ import NotFound from '../pages/NotFound'
 import Signup from '../pages/Signup'
 import Dashboard from "../pages/Dashboard"
 import ProtectedRoute from "./ProtectedRoute"
+import TaskDetail from "../pages/TaskDetail";
+
 
 const AppRouter = () => {
     const router = createBrowserRouter([
@@ -30,6 +32,14 @@ const AppRouter = () => {
             element:(
               <ProtectedRoute>
                 <Dashboard/>
+              </ProtectedRoute>
+            )
+        },
+        {
+            path: "/task/:id",
+            element: (
+              <ProtectedRoute>
+                <TaskDetail />
               </ProtectedRoute>
             )
         },

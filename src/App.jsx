@@ -4,8 +4,8 @@ import AppRouter from "./router/AppRouter"
 function App() {
   return (
     <>
-      <Toaster position="top-center"/>
-      <AppRouter/>
+        <Toaster position="top-center"/>
+        <AppRouter/>
     </>
   )
 }
