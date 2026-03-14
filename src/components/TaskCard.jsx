@@ -8,30 +8,14 @@ const TaskCard = ({ task, deleteTask, updateTaskStatus }) => {
 
   return (
 
-    <div className="p-4 bg-white rounded shadow flex justify-between items-center">
+    <div className="bg-white dark:bg-gray-900 border border-gray-200 dark:border-gray-700 rounded-xl p-4 flex justify-between items-start shadow-sm hover:shadow-md transition">
 
-      <div>
-
-        <h2 className="font-bold">{task.title}</h2>
-
-        <p className="text-gray-600">{task.description}</p>
-
-        {task.dueDate && (
-          <p className="text-sm text-red-500">
-            Due: {task.dueDate}
-          </p>
-        )}
-
-      </div>
-
-
-      <div className="flex items-center gap-4">
-
-        {/* checkbox */}
-        <span>{task.status}</span>
+      {/* Left Section */}
+      <div className="flex gap-3 items-start">
 
         <input
           type="checkbox"
+          className="mt-1 w-4 h-4 accent-blue-600 cursor-pointer"
           checked={task.status === "completed"}
           onChange={(e)=>
             updateTaskStatus(
@@ -41,24 +25,40 @@ const TaskCard = ({ task, deleteTask, updateTaskStatus }) => {
           }
         />
 
+        <div>
+          <h2 className={`font-semibold text-lg ${task.status === "completed" ? "line-through text-gray-400" : "dark:text-white"}`}>
+            {task.title}
+          </h2>
 
-        {/* edit */}
+          {task.description && (
+            <p className="text-gray-500 text-sm mt-1">
+              {task.description}
+            </p>
+          )}
+
+          {task.dueDate && (
+            <span className="inline-block mt-2 text-xs bg-red-100 text-red-600 px-2 py-1 rounded">
+              Due {task.dueDate}
+            </span>
+          )}
+        </div>
+
+      </div>
+
+      {/* Right Section */}
+      <div className="flex items-center gap-4">
 
         <FaEdit
-          className="cursor-pointer text-blue-500"
+          className="cursor-pointer text-blue-500 hover:text-blue-700 transition"
           onClick={()=>setOpen(true)}
         />
 
-
-        {/* delete */}
-
         <FaTrash
-          className="cursor-pointer text-red-500"
+          className="cursor-pointer text-red-500 hover:text-red-700 transition"
           onClick={()=>deleteTask(task.id)}
         />
 
       </div>
-
 
       {open && (
         <EditTaskModal
