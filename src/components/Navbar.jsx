@@ -16,13 +16,6 @@ const Navbar = () => {
       <div className="text-xl font-bold">
         TaskPWA
       </div>
-      <div className="w-1/3">
-        <input
-          type="text"
-          placeholder="Search tasks..."
-          className="w-full border rounded px-3 py-1"
-        />
-      </div>
       <div className="flex items-center gap-4">
         <button onClick={toggleDarkMode} className="text-xl">
           {darkMode ? <FaSun /> : <FaMoon />}
