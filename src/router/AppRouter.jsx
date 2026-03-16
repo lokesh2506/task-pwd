@@ -26,14 +26,6 @@ const AppRouter = () => {
             )
         },
         {
-            path:"/dashboard",
-            element:(
-              <ProtectedRoute>
-                <Dashboard/>
-              </ProtectedRoute>
-            )
-        },
-        {
             path: "/create-task",
             element: (
               <ProtectedRoute>
